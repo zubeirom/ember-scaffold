@@ -53,3 +53,6 @@ body {
 .ui.mobile.only.grid .ui.menu .ui.vertical.menu {
   display: none;
 }
+a {
+  cursor: pointer !important;
+}
