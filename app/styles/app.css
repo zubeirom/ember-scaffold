@@ -1,6 +1,7 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: grayscale;
+  background-color: #282828 !important;
 }
 #sidebar {
   position: fixed;
