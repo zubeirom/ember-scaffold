@@ -1,10 +1,26 @@
 <div class="ui tablet computer only padded grid">
   <div class="ui inverted borderless top fixed fluid menu massive">
     <div class="ui container">
-      <a class="header item">Project name</a>
+      {{#link-to "index" class="header item"}}
+        The Nile
+      {{/link-to}}
       <div class="right menu">
-        <a class="item">Dashboard</a> <a class="item">Settings</a>
-        <a class="item">Profile</a> <a class="item">Help</a>
+        {{#if session.isAuthenticated}}
+          <a href="" class="item">Upload</a>
+          <a href="" class="item">My-Channel</a>
+          <a href="" role="button" class="item" {{action "invalidate"}}></a>
+          <a href="" class="item">About</a>
+        {{else}}
+          {{#link-to "login" class="item"}}
+            Login
+          {{/link-to}}
+          {{#link-to "sign-up" class="item"}}
+            Sign Up
+          {{/link-to}}
+          {{#link-to "about" class="item"}}
+            About
+          {{/link-to}}
+        {{/if}}
       </div>
     </div>
   </div>
@@ -32,6 +48,7 @@
 <br>
 <br>
 <div class="ui container">
+  {{outlet}}
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
