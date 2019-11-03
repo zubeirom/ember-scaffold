@@ -7,7 +7,7 @@ export default Controller.extend({
   session: service(),
 
   checklist(obj) {
-    if (obj.channelname !== undefined && obj.password !== undefined) {
+    if (obj.channelname && obj.password) {
       return true
     }
     this.toastr.error('Please enter all fields', 'Warning');
@@ -16,6 +16,7 @@ export default Controller.extend({
 
   actions: {
     async register(){
+      set(this, 'show', false);
       set(this, 'loader', true);
       if(this.checklist(this.model)) {
         if(this.model.password === this.secondPassword) {
@@ -25,7 +26,7 @@ export default Controller.extend({
             set(this, 'secondPassword', '');
           } catch (error) {
             console.log(error);
-            this.toastr.error('Account exists already', 'Error');
+            this.toastr.error('Channel exists already', 'Error');
             set(this.model, 'password', '');
             set(this, 'secondPassword', '');
           }
