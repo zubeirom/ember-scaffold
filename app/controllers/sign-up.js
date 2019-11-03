@@ -22,6 +22,10 @@ export default Controller.extend({
         if(this.model.password === this.secondPassword) {
           try {
             await this.model.save();
+            this.session.authenticate('authenticator:oauth2', this.model.channelname, this.model.password).catch((reason) => {
+              this.set('errorMessage', reason.error || reason);
+              console.log(reason.error || reason)
+            });
             set(this.model, 'password', '');
             set(this, 'secondPassword', '');
           } catch (error) {
