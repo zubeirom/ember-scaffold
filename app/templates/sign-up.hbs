@@ -4,7 +4,7 @@
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 id="head" class="ui center aligned header">
-      <img class="image" src="" /> Register a new account
+      <img class="image" src="" alt="logo"/> Register a new account
     </h2>
     <form class="ui large form">
       <div class="ui stacked inverted segment">
@@ -31,7 +31,7 @@
             {{ui-checkbox class="toggle" label="Show password" checked=show onChange=(action (mut show))}}
           </div>
         </div><br>
-        <div id="logbutton" class="ui fluid large submit button">Login</div>
+        <div id="logbutton" class="ui fluid large {{if loader "loading"}} submit button" {{action "register"}}>Login</div>
       </div>
       <div class="ui error message"></div>
     </form>
