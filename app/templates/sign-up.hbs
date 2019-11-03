@@ -1,1 +1,40 @@
-{{outlet}}
+<br>
+<br>
+<br>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 id="head" class="ui center aligned header">
+      <img class="image" src="" /> Register a new account
+    </h2>
+    <form class="ui large form">
+      <div class="ui stacked inverted segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i id="regi" class="user icon"></i>
+            {{input value=model.channelname placeholder="Enter channelname..." type="text"}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i id="regi" class="lock icon"></i>
+            {{input value=model.password placeholder="Enter password..." type=(if show "text" "password")}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i id="regi" class="lock icon"></i>
+            {{input value=this.secondPassword type=(if show "text" "password") placeholder="Enter password again..."}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            {{ui-checkbox class="toggle" label="Show password" checked=show onChange=(action (mut show))}}
+          </div>
+        </div><br>
+        <div id="logbutton" class="ui fluid large submit button">Login</div>
+      </div>
+      <div class="ui error message"></div>
+    </form>
+    <div class="ui message inverted">Already have an account? {{#link-to 'login'}} Login{{/link-to}}</div>
+  </div>
+</div>

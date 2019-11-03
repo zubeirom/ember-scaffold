@@ -1,5 +1,5 @@
 <div class="ui tablet computer only padded grid">
-  <div class="ui inverted borderless top fixed fluid menu massive">
+  <div id="nav" class="ui inverted borderless top fixed fluid menu massive">
     <div class="ui container">
       {{#link-to "index" class="header item"}}
         The Nile
@@ -26,7 +26,7 @@
   </div>
 </div>
 <div class="ui mobile only padded grid">
-  <div class="ui bottom fixed borderless fluid inverted labeled three item icon menu">
+  <div id="nav" class="ui bottom fixed borderless fluid inverted labeled three item icon menu">
     {{#if session.isAuthenticated}}
       {{#link-to "index" class="item"}}
         <i class="fas fa-home fa-2x"></i>
@@ -61,6 +61,11 @@
 <br>
 <div class="ui container">
   {{outlet}}
+</div>
+<div class="ui tablet computer only padded grid">
+  <footer>
+    <div class="ui container"><p>©2019 Made by <a href="https://zubeirtech.firebaseapp.com">ZubeirTech</a> </p></div>
+  </footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
