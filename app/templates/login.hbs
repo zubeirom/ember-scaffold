@@ -1,1 +1,35 @@
-{{outlet}}
+<br>
+<br>
+<br>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 id="head" class="ui center aligned header">
+      <img class="image" src="" alt="logo"/> Login to your channel
+    </h2>
+    <form class="ui large form">
+      <div class="ui stacked inverted segment">
+        <div class="field">
+          <label for=""></label>
+          <div class="ui left icon input">
+            <i id="regi" class="user icon"></i>
+            {{input value=this.channelname placeholder="Enter channel name..." type="text"}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i id="regi" class="lock icon"></i>
+            {{input value=this.password placeholder="Enter password..." type=(if show "text" "password")}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            {{ui-checkbox class="toggle" label="Show password" checked=show onChange=(action (mut show))}}
+          </div>
+        </div><br>
+        <div id="logbutton" class="ui fluid large {{if loader "loading"}} submit button" {{action "login"}}>Login</div>
+      </div>
+      <div class="ui error message"></div>
+    </form>
+    <div class="ui message inverted">Don't have an account? {{#link-to 'sign-up'}} Register{{/link-to}}</div>
+  </div>
+</div>
